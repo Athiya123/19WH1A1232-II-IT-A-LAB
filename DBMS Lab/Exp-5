@@ -1,0 +1,23 @@
+create table bus(busno int primary key,fromplace varchar(20),toplace varchar(20));
+insert into bus values(101,'HYD','Bang'),(102,'CHEN','Pune'),(103,'HYD','MUM');
+select fromplace,toplace from bus;
+
+create table Ticket(Ticket_No int primary key,Journey_date Date,Age int,Sex varchar(10),
+Source varchar(10),Arrival_time varchar(6),Destination varchar(10),Dep_time varchar(6));
+insert into Ticket values(1,'2021-05-15',35,'F','HYD','08:35','VIZ','06:30');
+update Ticket set Destination = 'WARANGAL' where Ticket_No = 1;
+select * from Ticket;
+
+create table Passenger(PNo int(9) primary key,PName varchar(15),PAge int,PSex 
+Char(10),P_Seatnum int);
+insert into Passenger values('1201','Hanshitha','25','Female','1');
+insert into Passenger values('1202','preethi','18','Female','2');
+insert into Passenger values('1203','Deepika','19','Female','3');
+insert into Passenger values('1204','Harika','24','Female','4');
+select * from Passenger;
+
+create table Reservation(PNo int,foreign key(PNo) references Passenger(PNo),Journey_date date,No_of_seats int,
+Address varchar(40),Contact_No int,Status Char(2));
+create table Cancellation(PNo int, foreign key(PNo) references passenger(PNo),Journey_date date,No_of_seats int,
+Address varchar(40),Contact_No int,Status Char(2));
+show tables;
