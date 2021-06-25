@@ -1,3 +1,4 @@
+//Java Program to calculate simple interest
 import java.util.Scanner;
 
 class SimpleInterest{
