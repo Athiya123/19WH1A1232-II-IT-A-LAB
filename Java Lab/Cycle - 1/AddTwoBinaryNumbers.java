@@ -1,3 +1,4 @@
+//Java Program to add two binary numbers
 import java.util.Scanner;
 public class AddTwoBinaryNumbers{
    public static void main(String[] args)
