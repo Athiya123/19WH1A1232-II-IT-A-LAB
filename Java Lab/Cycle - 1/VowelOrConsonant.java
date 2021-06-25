@@ -1,3 +1,4 @@
+//Java Program to check whether input character is vowel or consonant
 import java.util.Scanner;
 public class VowelOrConsonant{
    public static void main(String args[]){
