@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<unistd.h>
+#define MSGSIZE 100
+int main(int argc, char * argv[])
+{
+        int fd[2];
+        char buf[MSGSIZE];
+        if(pipe(fd)==-1)
+        {
+                printf("An error occured\n");
+                return 1;
+        }
+        char * msg = "Hi! How are you";
+        int id = fork();
+        if(id == 0)
+        {
+                write(fd[1], msg, MSGSIZE);
+        }
+        else
+        {
+                read(fd[0],buf,MSGSIZE);
+                printf("Msg Recieved from child process: %s",buf);
+        }
+        return 0;
+}
