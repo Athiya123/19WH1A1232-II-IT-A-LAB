@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<unistd.h>
+int main(int argc,char * argv[])
+{
+        int fd[2];
+        if(pipe(fd)==-1)
+        {
+                printf("An error Occured\n");
+                return 1;
+        }
+        int id = fork();
+        if(id == 0)
+        {
+                int x;
+                printf("Enter a number:");
+                        scanf("%d",&x);
+                write(fd[1], &x, sizeof(int));
+        }
+        else
+        {
+                int y;
+                read(fd[0], &y, sizeof(int));
+                printf("Value Recieved from child process: %d",y);
+        }
+        return 0;
+}
