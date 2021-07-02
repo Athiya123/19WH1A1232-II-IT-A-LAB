@@ -1,3 +1,5 @@
+//Write a Java program that correctly implements the producer – consumer problem using the concept of interthread communication.
+
 class Q {
     int num;
     boolean valueSet = false;//Empty
